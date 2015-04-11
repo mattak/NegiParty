@@ -17,7 +17,10 @@ public class NegiLauncher : MonoBehaviour {
 					return GameManager.Instance.isCutting();
 				})
 				.Where( x => {
-					return (count++) % 4 != 0;
+					return (++count) % 4 != 0;
+				})
+				.Where( x => {
+					return (count / 4) % 4 != 0;
 				})
 			.Subscribe(x => LaunchMaterial());
 	}
@@ -29,5 +32,7 @@ public class NegiLauncher : MonoBehaviour {
 		float velocityDiverseX = Random.Range (-0.1f ,0.1f);
 		float velocityDiverseY = Random.Range (0.0f, 0.1f);
 		rigidbody.velocity = new Vector2 ((1.2f + velocityDiverseX)*velocityStrength, (1.8f + velocityDiverseY)*velocityStrength);
+
+		Destroy (gameObject, 3.0f);
 	}
 }

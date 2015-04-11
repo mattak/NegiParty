@@ -14,6 +14,7 @@ TagManager:
   - ExplosionFX
   - HealthBar
   - Negi
+  - Kushi
   layers:
   - Default
   - TransparentFX
