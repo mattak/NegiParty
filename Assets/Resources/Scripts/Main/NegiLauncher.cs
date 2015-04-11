@@ -8,14 +8,10 @@ public class NegiLauncher : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameManager.Instance.startCutting ();
 
 		long count = 0;
 		Observable.Timer(System.TimeSpan.FromSeconds(0.5))
 			.RepeatUntilDestroy(this.gameObject)
-				.Where ( x => {
-					return GameManager.Instance.isCutting();
-				})
 				.Where( x => {
 					return (++count) % 4 != 0;
 				})

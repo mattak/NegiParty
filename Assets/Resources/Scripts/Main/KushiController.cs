@@ -45,30 +45,35 @@ public class KushiController : MonoBehaviour {
 				.Subscribe (x => {
 					tick += generateTimeSpan;
 
-					if (tick == 1.0f) {
-						state = YakiState.rare;
-					}
-					else if (tick == 2.8f) {
-						state = YakiState.midium;
-					}
-					else if (tick == 3.2f) {
-						state = YakiState.burnt;
-					}
-					else if (tick >= 3.5f) {
+					if (tick >= 3.5f) {
 						EndYaki ();
 					}
+					else if (tick >= 3.2f) {
+						state = YakiState.burnt;
+					}
+					else if (tick >= 2.8f) {
+						state = YakiState.midium;
+					}
+					else if (tick >= 1.0f) {
+						state = YakiState.rare;
+					}
+
 				});
 	}
 
 	public void EndYaki () {
+		Debug.Log ("endyaki: " + state);
 		switch (state) {
 		case YakiState.raw:
 			break;
 		case YakiState.rare:
+			GameManager.Instance.UpdateScore(10.0f);
 			break;
 		case YakiState.midium:
+			GameManager.Instance.UpdateScore(100.0f);
 			break;
 		case YakiState.burnt:
+			GameManager.Instance.UpdateScore(5.0f);
 			break;
 		}
 

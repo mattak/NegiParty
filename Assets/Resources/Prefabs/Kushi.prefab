@@ -62,7 +62,7 @@ GameObject:
   - 61: {fileID: 6117750}
   m_Layer: 0
   m_Name: Kushi
-  m_TagString: Untagged
+  m_TagString: Kushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

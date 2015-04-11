@@ -9,7 +9,6 @@ public class YakiController : MonoBehaviour {
 		if (collision.gameObject.tag == "Kushi") {
 			KushiController controller = collision.gameObject.GetComponent<KushiController>();
 			controller.StartYaki ();
-			Debug.Log ("StartYaki");
 		}
 	}
 }
