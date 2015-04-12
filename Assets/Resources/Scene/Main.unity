@@ -366,7 +366,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1bce7085b9f96454caaa0792c3274d15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe32ce202a1a240eea3984e133729cbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &614692005
 GameObject:
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 677b35d17d3f740cca3d471644d5372b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3be36ee84abfc4a98a883ad0bbe150d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -515,7 +515,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1300, y: 0}
+  m_AnchoredPosition: {x: 0, y: -90}
   m_SizeDelta: {x: 502, y: 82}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &697720583
@@ -904,7 +904,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1108149923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .870000005, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1854489484}
@@ -1053,7 +1053,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1337947839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 10}
+  m_LocalPosition: {x: 7, y: 3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1113239129}
@@ -1137,7 +1137,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 7190ebbb2d6c141659c73cc764801ae0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0dd3ef16b742644f6867f83f89dbdf38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1508900414
 GameObject:
@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 11c9d1f307fca4ab590702ef4485696f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afca880d64960428897351f1364aa338, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1566,7 +1566,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: 21300000, guid: e0f7d7019ca7e446aa0212495d7b9c78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f30b860958eb4bc894d9192f59d9c5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &2052293732
 BoxCollider2D:
