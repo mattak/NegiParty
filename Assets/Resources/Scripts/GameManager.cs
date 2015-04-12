@@ -33,6 +33,8 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager> {
 						GameOver();
 					}
 				});
+
+		ResultManager.Instance.HideResult ();
 	}
 
 	public void SetScore (float point) {
@@ -47,6 +49,6 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager> {
 
 	public void GameOver () {
 		PlayerPrefs.SetFloat ("lastScore", score);
-		Application.LoadLevel ("StartGame");
+		ResultManager.Instance.ShowResult ((int)score);
 	}
 }

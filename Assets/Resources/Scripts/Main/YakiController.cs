@@ -10,8 +10,6 @@ public class YakiController : SingletonMonoBehaviourFast<YakiController> {
 	}
 
 	public void OnClickYakiButton () {
-		Debug.Log ("Yaki: " + kushiSet.Count);
-
 		GameObject matchObject = null;
 
 		foreach (GameObject kushi in kushiSet) {
@@ -40,14 +38,12 @@ public class YakiController : SingletonMonoBehaviourFast<YakiController> {
 
 	public void RemoveKushi (GameObject removeObject) {
 		lock (kushiSet) {
-			Debug.Log ("Remove");
 			kushiSet.Remove (removeObject);
 		}
 	}
 
 	public void AddKushi (GameObject addObject) {
 		lock (kushiSet) {
-			Debug.Log ("Add");
 			kushiSet.Add (addObject);
 		}
 	}
