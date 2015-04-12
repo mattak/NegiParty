@@ -25,7 +25,7 @@ public class NegiLauncher : MonoBehaviour {
 		GameObject gameObject = Instantiate (material, this.gameObject.transform.position, Quaternion.identity) as GameObject;
 		Rigidbody2D rigidbody = gameObject.GetComponent<Rigidbody2D>();
 
-		float velocityDiverseX = Random.Range (-0.1f ,0.1f);
+		float velocityDiverseX = Random.Range (-0.2f ,0.0f);
 		float velocityDiverseY = Random.Range (0.0f, 0.1f);
 		rigidbody.velocity = new Vector2 ((1.2f + velocityDiverseX)*velocityStrength, (1.8f + velocityDiverseY)*velocityStrength);
 

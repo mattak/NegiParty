@@ -6,14 +6,25 @@ public class KushiController : MonoBehaviour {
 	public GameObject material1;
 	public GameObject material2;
 	public GameObject material3;
+	public GameObject tableObject;
+	
 	private float yakiStartTime;
 	private YakiState state = YakiState.raw;
+	private bool completed = false;
+
+	private Sprite spriteNama;
+	private Sprite spriteChoiyake;
+	private Sprite spriteKongari;
+	private Sprite spriteKoge;
 
 	private enum YakiState {
 		raw = 0, // namaniku 0.0f - 1.0f      // 0pt
 		rare, // namayakeniku 1.0f-2.8f   // 10pt
 		midium, // kongari 2.8f - 3.2f    // 100pt
 		burnt, // 3.2f-                   // 5pt
+	}
+
+	void Start() {
 	}
 
 	public void SetCount (int count) {
@@ -32,9 +43,15 @@ public class KushiController : MonoBehaviour {
 		if (count >= 3) {
 			material3.SetActive (true);
 		}
+
+		spriteNama = Resources.Load ("Sprites/material_negi_nama", typeof(Sprite)) as Sprite;
+		spriteChoiyake = Resources.Load ("Sprites/material_negi_choiyake", typeof(Sprite)) as Sprite;
+		spriteKongari = Resources.Load ("Sprites/material_negi_kongari", typeof(Sprite)) as Sprite;
+		spriteKoge = Resources.Load ("Sprites/material_negi_koge", typeof(Sprite)) as Sprite;
 	}
 
 	public void StartYaki () {
+		YakiController.Instance.AddKushi (this.gameObject);
 		yakiStartTime = Time.time;
 
 		// 1sec yaki state change. 
@@ -43,10 +60,14 @@ public class KushiController : MonoBehaviour {
 		Observable.Timer(System.TimeSpan.FromSeconds(generateTimeSpan))
 			.RepeatUntilDestroy (this.gameObject)
 				.Subscribe (x => {
-					tick += generateTimeSpan;
+					tick = Time.time - yakiStartTime;
+
+					if (completed) {
+						return;
+					}
 
 					if (tick >= 3.5f) {
-						EndYaki ();
+						FailureYaki ();
 					}
 					else if (tick >= 3.2f) {
 						SetState (YakiState.burnt);
@@ -57,37 +78,36 @@ public class KushiController : MonoBehaviour {
 					else if (tick >= 1.0f) {
 						SetState (YakiState.rare);
 					}
-
 				});
 	}
 
 	void SetState(YakiState nextState) {
 		state = nextState;
-
-		string imagePath = "";
+		Sprite stateSprite = null;
 
 		switch (state) {
 		case YakiState.raw:
-			imagePath = "Sprites/material_negi_nama";
+			stateSprite = spriteNama;
 			break;
 		case YakiState.rare:
-			imagePath = "Sprites/material_negi_choiyake";
+			stateSprite = spriteChoiyake;
 			break;
 		case YakiState.midium:
-			imagePath = "Sprites/material_negi_kongari";
+			stateSprite = spriteKongari;
 			break;
 		case YakiState.burnt:
-			imagePath = "Sprites/material_negi_koge";
+			stateSprite = spriteKoge;
 			break;
 		}
 
-		material1.GetComponent<SpriteRenderer>().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
-		material2.GetComponent<SpriteRenderer>().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
-		material3.GetComponent<SpriteRenderer>().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
+		material1.GetComponent<SpriteRenderer> ().sprite = stateSprite;
+		material2.GetComponent<SpriteRenderer> ().sprite = stateSprite;
+		material3.GetComponent<SpriteRenderer> ().sprite = stateSprite;
 	}
 
-	public void EndYaki () {
-		Debug.Log ("endyaki: " + state);
+	public void CompleteYaki () {
+		completed = true;
+
 		switch (state) {
 		case YakiState.raw:
 			break;
@@ -101,6 +121,14 @@ public class KushiController : MonoBehaviour {
 			GameManager.Instance.UpdateScore(5.0f);
 			break;
 		}
+
+		Vector3 tablePosition = tableObject.transform.position;
+		this.gameObject.transform.position = new Vector3 (tablePosition.x, tablePosition.y+5, tablePosition.z);
+	}
+
+	public void FailureYaki () {
+		completed = true;
+		YakiController.Instance.RemoveKushi (this.gameObject);
 
 		Destroy (this.gameObject);
 	}

@@ -8,7 +8,8 @@
 
 - [ ] animate cook when launch negi.
 - [x] negi state change with yaki progress.
-- [ ] burned negi is next on the table.
+- [x] burned negi is next on the table.
+- [ ] cook wait for next negi until burning.
 - [ ] teppan animation.
 - [ ] with music & se.
 - [ ] button state image apply.

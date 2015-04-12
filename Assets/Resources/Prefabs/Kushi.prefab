@@ -160,6 +160,7 @@ MonoBehaviour:
   material1: {fileID: 121716}
   material2: {fileID: 145158}
   material3: {fileID: 160266}
+  tableObject: {fileID: 147626, guid: 1ff77fcec61f9485c8f2ddde0a11c3bb, type: 2}
 --- !u!212 &21207984
 SpriteRenderer:
   m_ObjectHideFlags: 1

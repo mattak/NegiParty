@@ -17,7 +17,6 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager> {
 
 		gameStartTime = Time.time;
 		maxGaugeSize = gameTimeImage.rectTransform.sizeDelta;
-		Debug.Log("size" + maxGaugeSize);
 
 		Observable.Timer(System.TimeSpan.FromSeconds(0.1f))
 			.RepeatUntilDestroy(this.gameObject)
