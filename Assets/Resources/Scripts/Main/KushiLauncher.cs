@@ -32,6 +32,8 @@ public class KushiLauncher : MonoBehaviour {
 		else if (count < 3) {
 			Destroy (kushi, 0.1f);
 		}
+
+		// negi is burn out on teppan.
 		Destroy (negi);
 
 		// update count

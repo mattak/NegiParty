@@ -28,7 +28,6 @@ public class GameManager : SingletonMonoBehaviourFast<GameManager> {
 				})
 				.Subscribe (ratio => {
 					Vector2 size = new Vector2(maxGaugeSize.x * ratio, maxGaugeSize.y);
-					Debug.Log("ratio" + ratio);
 					gameTimeImage.rectTransform.sizeDelta = size;
 
 					if (ratio >= 1.0f) {

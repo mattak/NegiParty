@@ -49,16 +49,41 @@ public class KushiController : MonoBehaviour {
 						EndYaki ();
 					}
 					else if (tick >= 3.2f) {
-						state = YakiState.burnt;
+						SetState (YakiState.burnt);
 					}
 					else if (tick >= 2.8f) {
-						state = YakiState.midium;
+						SetState (YakiState.midium);
 					}
 					else if (tick >= 1.0f) {
-						state = YakiState.rare;
+						SetState (YakiState.rare);
 					}
 
 				});
+	}
+
+	void SetState(YakiState nextState) {
+		state = nextState;
+
+		string imagePath = "";
+
+		switch (state) {
+		case YakiState.raw:
+			imagePath = "Sprites/material_negi_nama";
+			break;
+		case YakiState.rare:
+			imagePath = "Sprites/material_negi_choiyake";
+			break;
+		case YakiState.midium:
+			imagePath = "Sprites/material_negi_kongari";
+			break;
+		case YakiState.burnt:
+			imagePath = "Sprites/material_negi_koge";
+			break;
+		}
+
+		material1.GetComponent<SpriteRenderer>().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
+		material2.GetComponent<SpriteRenderer>().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
+		material3.GetComponent<SpriteRenderer>().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
 	}
 
 	public void EndYaki () {
