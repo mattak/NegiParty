@@ -45,7 +45,7 @@ public class ResultManager : SingletonMonoBehaviourFast<ResultManager> {
 			imagePath = "Sprites/result_rank05";
 		}
 
-		rankObject.GetComponent<Image> ().sprite = Resources.Load(imagePath) as Sprite;
+		rankObject.GetComponent<Image> ().sprite = Resources.Load(imagePath, typeof(Sprite)) as Sprite;
 	}
 	
 	void UpdateScore (int score) {
@@ -105,7 +105,7 @@ public class ResultManager : SingletonMonoBehaviourFast<ResultManager> {
 			break;
 		}
 
-		digitObject.GetComponent<Image> ().sprite = Resources.Load (imagePath) as Sprite;
+		digitObject.GetComponent<Image> ().sprite = Resources.Load (imagePath, typeof(Sprite)) as Sprite;
 	}
 
 	void HideScore (GameObject digitObject) {
