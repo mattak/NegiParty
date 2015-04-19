@@ -5,9 +5,11 @@ using UniRx;
 public class NegiLauncher : MonoBehaviour { 
 	public GameObject material;
 	public float velocityStrength = 10;
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
+		animator = this.GetComponent<Animator>();
 
 		long count = 0;
 		Observable.Timer(System.TimeSpan.FromSeconds(0.5))
@@ -28,6 +30,8 @@ public class NegiLauncher : MonoBehaviour {
 		float velocityDiverseX = Random.Range (-0.2f ,0.0f);
 		float velocityDiverseY = Random.Range (0.0f, 0.1f);
 		rigidbody.velocity = new Vector2 ((1.2f + velocityDiverseX)*velocityStrength, (1.8f + velocityDiverseY)*velocityStrength);
+
+		animator.SetBool ("IsCooking", true);
 
 		Destroy (gameObject, 3.0f);
 	}
