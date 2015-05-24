@@ -3,26 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class YakiController : SingletonMonoBehaviourFast<YakiController> {
-	private HashSet<GameObject> kushiSet;
+	private SortedList<int, KushiController> kushiSet;
+	private int count;
 
 	void Start() {
-		kushiSet = new HashSet<GameObject> ();
+		count = 0;
+		kushiSet = new SortedList<int, KushiController> (new SpitComparer());
 	}
 
 	public void OnClickYakiButton () {
-		GameObject matchObject = null;
-
-		foreach (GameObject kushi in kushiSet) {
-			if (kushi == null || kushi.gameObject == null) { continue; }
-			matchObject = kushi;
-			KushiController controller = kushi.GetComponent<KushiController>();
-			controller.CompleteYaki ();
-			break;
-		}
-
-		if (matchObject != null) {
-			RemoveKushi (matchObject);
-		}
+		PickUp ();
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {
@@ -36,15 +26,42 @@ public class YakiController : SingletonMonoBehaviourFast<YakiController> {
 		}
 	}
 
-	public void RemoveKushi (GameObject removeObject) {
-		lock (kushiSet) {
-			kushiSet.Remove (removeObject);
+	private void PickUp() {
+		KushiController matchObject = null;
+
+		foreach (KushiController kushi in kushiSet.Values) {
+			if (kushi == null || kushi.gameObject == null) { continue; }
+			matchObject = kushi;
+			matchObject.CompleteYaki ();
+			break;
+		}
+		
+		if (matchObject != null) {
+			RemoveKushi (matchObject);
 		}
 	}
 
-	public void AddKushi (GameObject addObject) {
+	public void RemoveKushi (KushiController removeObject) {
 		lock (kushiSet) {
-			kushiSet.Add (addObject);
+			kushiSet.RemoveAt (kushiSet.IndexOfValue(removeObject));
 		}
+	}
+
+	public void AddKushi (KushiController addObject) {
+		lock (kushiSet) {
+			int position = kushiSet.IndexOfValue (addObject);
+			if (position != -1) {
+				kushiSet.RemoveAt (position);
+			}
+
+			kushiSet.Add (count, addObject);
+			count++;
+		}
+	}
+}
+
+public class SpitComparer : IComparer<int> {
+	public int Compare(int x, int y) {
+		return x - y;
 	}
 }

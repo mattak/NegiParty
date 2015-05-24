@@ -51,7 +51,7 @@ public class KushiController : MonoBehaviour {
 	}
 
 	public void StartYaki () {
-		YakiController.Instance.AddKushi (this.gameObject);
+		YakiController.Instance.AddKushi (this);
 		yakiStartTime = Time.time;
 
 		// 1sec yaki state change. 
@@ -128,7 +128,7 @@ public class KushiController : MonoBehaviour {
 
 	public void FailureYaki () {
 		completed = true;
-		YakiController.Instance.RemoveKushi (this.gameObject);
+		YakiController.Instance.RemoveKushi (this);
 
 		Destroy (this.gameObject);
 	}

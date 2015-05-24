@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StartGameSceneController : MonoBehaviour {
+public class StartButtonBehaviour : MonoBehaviour {
 	public void OnClickStartButton() {
 		Application.LoadLevel ("Main");
 	}
