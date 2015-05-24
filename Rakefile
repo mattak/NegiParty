@@ -18,8 +18,8 @@ def run(cmd)
 end
 
 task :sync do
-  `rsync -av Assets/Plugins/iOS/ Exports/iOS/`
-  `rsync -av Assets/Plugins/Android/ Exports/Android/NegiParty/`
+  `rsync --exclude '*.meta' -av Assets/Plugins/iOS/ Exports/iOS/`
+  `rsync --exclude '*.meta' -av Assets/Plugins/Android/ Exports/Android/NegiParty/`
 end
 
 task :open do
