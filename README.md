@@ -10,8 +10,6 @@ ext.gradle
 
     ext {
         signing_gradle = "..."
-        betaDistributionReleaseNotes = "..."
-        betaDistributionGroupAliases = "..."
     }
 
 fabric.properties

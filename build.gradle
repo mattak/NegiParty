@@ -11,6 +11,8 @@ buildscript {
 
 ext {
     projectDir = 'Exports/Android/NegiParty'
+    betaDistributionReleaseNotes = "Upload from local environment" 'git log -n1 --format="%ci %h %s"'.execute().text.split('\n')[0]
+    betaDistributionGroupAliases = "gamejam"
 }
 
 apply plugin: 'com.android.application'
