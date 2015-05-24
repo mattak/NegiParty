@@ -4,7 +4,6 @@ using System.Collections;
 public class KushiLauncher : MonoBehaviour {
 	public GameObject kushiObject;
 	private int count = 0;
-	private bool canPrick = false;
 	private Collider2D prickCollider;
 
 	void Start () {
