@@ -22,3 +22,10 @@ sysinfo.txt
 
 # Exports 
 Exports/
+
+# Android
+
+fabric.properties
+build/
+local.properties
+ext.gradle

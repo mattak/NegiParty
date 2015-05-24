@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+ext {
+    projectDir = 'Exports/Android/NegiParty'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply from:   'ext.gradle'
+
+repositories {
+    jcenter()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    compile fileTree(dir: "${project.ext.projectDir}/libs", include: ['*.jar'])
+    compile('com.crashlytics.sdk.android:crashlytics:2.2.4@aar') {
+        transitive = true;
+    }
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "me.mattak.yamanashi.negiparty"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "0.0.1"
+    }
+
+    apply from: project.ext.signing_gradle, to: android
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.mattak
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile     "${project.ext.projectDir}/AndroidManifest.xml"
+            java.srcDirs         = ["${project.ext.projectDir}/src"]
+            resources.srcDirs    = ["${project.ext.projectDir}/src"]
+            aidl.srcDirs         = ["${project.ext.projectDir}/src"]
+            renderscript.srcDirs = ["${project.ext.projectDir}/src"]
+            res.srcDirs          = ["${project.ext.projectDir}/res"]
+            assets.srcDirs       = ["${project.ext.projectDir}/assets"]
+            jniLibs.srcDirs      = ["${project.ext.projectDir}/libs"]
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}

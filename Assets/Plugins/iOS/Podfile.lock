@@ -1,0 +1,14 @@
+PODS:
+  - Fabric (1.3.0):
+    - Fabric/Core (= 1.3.0)
+  - Fabric/Core (1.3.0)
+  - Fabric/Crashlytics (1.3.0)
+
+DEPENDENCIES:
+  - Fabric (~> 1.3.0)
+  - Fabric/Crashlytics (~> 1.3.0)
+
+SPEC CHECKSUMS:
+  Fabric: ae297bbdf4d421850a54de364b9ffca8ee2ccf9f
+
+COCOAPODS: 0.37.1
