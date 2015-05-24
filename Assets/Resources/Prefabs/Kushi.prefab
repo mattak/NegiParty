@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21225978}
   m_Layer: 0
   m_Name: negi1
-  m_TagString: Untagged
+  m_TagString: Kushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ GameObject:
   - 212: {fileID: 21255708}
   m_Layer: 0
   m_Name: negi2
-  m_TagString: Untagged
+  m_TagString: Kushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - 212: {fileID: 21246830}
   m_Layer: 0
   m_Name: negi3
-  m_TagString: Untagged
+  m_TagString: Kushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
